@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User } from 'lucide-react';
-import { orchestratorAPI } from '../api/ai_agents';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { orchestratorAPI } from '../api/ai_agents.js';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const Chat = () => {
   const [messages, setMessages] = useState([

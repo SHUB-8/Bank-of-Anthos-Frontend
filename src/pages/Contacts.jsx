@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { contactSageAPI } from '../api/ai_agents';
-import Modal from '../components/Modal';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { contactSageAPI } from '../api/ai_agents.js';
+import Modal from '../components/Modal.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import { Search, Plus, Edit3, Trash2, User, ExternalLink, Mail, Phone } from 'lucide-react';
 
 const Contacts = () => {

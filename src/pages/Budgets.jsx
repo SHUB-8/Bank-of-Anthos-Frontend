@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { moneySageAPI } from '../api/ai_agents';
-import { BudgetBarChart } from '../components/BudgetChart';
-import Modal from '../components/Modal';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { moneySageAPI } from '../api/ai_agents.js';
+import { BudgetBarChart } from '../components/BudgetChart.jsx';
+import Modal from '../components/Modal.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import { Plus, Edit3, Trash2, Target, TrendingUp } from 'lucide-react';
 
 const Budgets = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { transactionAPI } from '../api/ai_agents';
-import { databaseAPI } from '../api/database';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { transactionAPI } from '../api/ai_agents.js';
+import { databaseAPI } from '../api/database.js';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import { format } from 'date-fns';
 import { CreditCard, AlertTriangle, CheckCircle, XCircle, Eye, Filter } from 'lucide-react';
 
