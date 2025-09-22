@@ -4,3 +4,5 @@
  import { MessageCircle, X, Send } from 'lucide-react';
 -import { orchestratorAPI } from '../api/ai_agents';
 +import { orchestratorAPI } from '../api/ai_agents.js';
+
+export default React
