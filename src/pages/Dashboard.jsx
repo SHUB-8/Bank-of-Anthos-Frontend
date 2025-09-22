@@ -10,3 +10,5 @@
 +import { BudgetDonutChart } from '../components/BudgetChart.jsx';
 +import LoadingSpinner from '../components/LoadingSpinner.jsx';
  import { AlertTriangle, TrendingUp, Shield, DollarSign, Target } from 'lucide-react';
+
+export default LoadingSpinner
