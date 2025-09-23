@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { moneySageAPI } from '../api/ai_agents.js';
-import { databaseAPI } from '../api/database.js';
+import { moneySageAPI, transactionAPI } from '../api/ai_agents.js';
 import { BudgetDonutChart } from '../components/BudgetChart.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import { AlertTriangle, TrendingUp, Shield, DollarSign, Target } from 'lucide-react';
@@ -16,14 +15,18 @@ const Dashboard = () => {
     const fetchDashboardData = async () => {
       setLoading(true);
       try {
-        const [budgetData, insightData, transactionData] = await Promise.all([
-          databaseAPI.fetchBudgets(),
-          moneySageAPI.getFinancialInsights(),
-          databaseAPI.fetchRecentTransactions()
+        const [budgetData, tipsData, transactionData] = await Promise.all([
+          moneySageAPI.getBudgets(),
+          moneySageAPI.getTips(),
+          transactionAPI.getTransactions(10)
         ]);
 
         setBudgets(budgetData);
-        setInsights(insightData);
+        setInsights(tipsData.map((tip, index) => ({
+          title: `Financial Tip ${index + 1}`,
+          description: tip,
+          type: 'info'
+        })));
         setDashboardData({
           totalBalance: transactionData.reduce((sum, t) => sum + t.amount, 0),
           monthlySpending: transactionData
@@ -33,6 +36,14 @@ const Dashboard = () => {
         });
       } catch (error) {
         console.error('Failed to fetch dashboard data:', error);
+        // Set fallback data to prevent blank screen
+        setBudgets([]);
+        setInsights([]);
+        setDashboardData({
+          totalBalance: 0,
+          monthlySpending: 0,
+          recentTransactions: []
+        });
       } finally {
         setLoading(false);
       }
