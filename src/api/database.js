@@ -1,6 +1,6 @@
 // Database API Service for security and anomaly data
 
-const DB_API_BASE_URL = process.env.REACT_APP_DB_API_BASE_URL || 'https://db.bankofanthos.ai';
+const DB_API_BASE_URL = import.meta.env.VITE_REACT_APP_DB_API_BASE_URL || 'https://db.bankofanthos.ai';
 
 export const databaseAPI = {
   async fetchAnomalyLogSummary() {
